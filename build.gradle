@@ -1,0 +1,88 @@
+subprojects {
+	apply plugin: "java"
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+    apply plugin: "maven"
+
+	group = 'com.viridiansoftware.metrics.elasticsearch'
+    version = '1.0.0-SNAPSHOT'
+    
+    uploadArchives {
+		repositories {
+			mavenDeployer {
+				repository(url: "http://maven.viridiansoftware.com/content/repositories/releases") {
+					if(project.hasProperty('mavenUser')) {
+						authentication(userName: project.property('mavenUser'), password: project.property('mavenPassword'))
+					}
+    			}
+    			snapshotRepository(url: "http://maven.viridiansoftware.com/content/repositories/snapshots") {
+    				if(project.hasProperty('mavenUser')) {
+    					authentication(userName: project.property('mavenUser'), password: project.property('mavenPassword'))
+    				}
+    			}
+			}
+		}
+	}
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    }
+    
+    ext {
+    	metricsVersion="3.1.0"
+    	elasticsearchVersion="1.2.4"
+    	jacksonVersion="2.2.2"
+    	jodaVersion="2.4"
+    	
+		junitVersion="4.10"
+		mockitoVersion="1.9.5"
+		hamcrestVersion="1.3"
+		luceneVersion="4.8.1"
+    }
+    
+    tasks.eclipse.doLast {
+    	delete ".project"
+	}
+}
+
+project(":" + rootProject.name + "-core") {
+    apply plugin: "java"
+
+    dependencies {
+        compile "io.dropwizard.metrics:metrics-core:$metricsVersion"
+        compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+        compile "joda-time:joda-time:$jodaVersion"
+        
+        testCompile "junit:junit:$junitVersion"
+		testCompile "org.mockito:mockito-all:$mockitoVersion"
+    }
+}
+
+project(":" + rootProject.name + "-transport") {
+    dependencies {
+       	compile project(":" + rootProject.name +"-core")
+       	compile "org.elasticsearch:elasticsearch:$elasticsearchVersion"
+        
+        testCompile "junit:junit:$junitVersion"
+		testCompile "org.mockito:mockito-all:$mockitoVersion"
+		testCompile "org.hamcrest:hamcrest-integration:$hamcrestVersion"
+		testCompile "org.apache.lucene:lucene-test-framework:$luceneVersion"
+		testCompile "org.elasticsearch:elasticsearch:$elasticsearchVersion:tests"
+    }
+}
+
+project(":" + rootProject.name + "-http") {
+    dependencies {
+    	compile project(":" + rootProject.name +"-core")
+    
+    	testCompile "junit:junit:$junitVersion"
+		testCompile "org.mockito:mockito-all:$mockitoVersion"
+		testCompile "org.hamcrest:hamcrest-integration:$hamcrestVersion"
+		testCompile "org.apache.lucene:lucene-test-framework:$luceneVersion"
+		testCompile "org.elasticsearch:elasticsearch:$elasticsearchVersion"
+		testCompile "org.elasticsearch:elasticsearch:$elasticsearchVersion:tests"
+    }
+}

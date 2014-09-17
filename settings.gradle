@@ -1,0 +1,3 @@
+include "core", "transport", "http"
+rootProject.name = 'metrics-elasticsearch'
+rootProject.children.each { it.name = rootProject.name + "-" + it.name }
