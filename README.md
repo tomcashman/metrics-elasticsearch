@@ -26,7 +26,7 @@ ElasticsearchReporter reporter = ElasticsearchHttpReporter
 reporter.start(1, TimeUnit.SECONDS);
 ```
 
-The reporter above is created with a lot of default values. You can change how the metrics are reported using further options like the example below.
+The reporter above is created with default values. You can change how the metrics are reported using further options like the example below.
 
 ```java
 ElasticsearchReporter reporter = ElasticsearchHttpReporter
@@ -43,6 +43,15 @@ reporter.start(1, TimeUnit.SECONDS);
 ### Transport Reporter
 
 The following will create a reporter that uses an already initialised Metric Registry, sets the indexes generated as "test-YYYY.MM.DD" and reports over the Transport API using an [Elasticsearch client instance](http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/client.html).
+
+```java
+ElasticsearchReporter reporter = ElasticsearchTransportReporter
+                .forRegistryAndIndexPrefix(registry, "test")
+                .build(client);
+reporter.start(1, TimeUnit.SECONDS);
+```
+
+The reporter above is created with default values. You can change how the metrics are reported using further options like the example below.
 
 ```java
 ElasticsearchReporter reporter = ElasticsearchTransportReporter
