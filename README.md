@@ -5,6 +5,8 @@ metrics-elasticsearch
 
 ## Versions
 
+If using the HTTP API, any version of Elasticsearch that supports the [Bulk API](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html) will report fine. However, 
+
 | metrics-elasticsearch  | dropwizard metrics | elasticsearch |
 | ------------- | ------------- | ------------- |
 | 1.0.0  | 3.1.0  | 1.2.4  |
