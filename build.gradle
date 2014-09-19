@@ -5,7 +5,7 @@ subprojects {
     apply plugin: "maven"
 
 	group = 'com.viridiansoftware.metrics.elasticsearch'
-    version = '1.0.0'
+    version = '1.0.1-SNAPSHOT'
     
     uploadArchives {
 		repositories {
