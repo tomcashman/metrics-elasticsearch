@@ -14,11 +14,69 @@ However, if using the Transport API, please note that metrics-elasticsearch uses
 
 ## Usage
 
+### Gradle Dependencies
+
+** Repository **
+
+```groovy
+repositories {
+   mavenLocal()
+   mavenCentral()
+   maven { url "http://maven.viridiansoftware.com/content/repositories/releases/ }
+}
+```
+
+** HTTP Reporter **
+
+```groovy
+compile 'com.viridiansoftware.metrics:metrics-elasticsearch-http:1.0.0'
+```
+
+** Transport Reporter **
+
+```groovy
+compile 'com.viridiansoftware.metrics:metrics-elasticsearch-transport:1.0.0'
+```
+
+### Maven Dependencies
+
+** Repository **
+```xml
+<repositories>
+	<repository>
+		<id>viridansoftware</id>
+		<name>Viridian Software repository</name>
+		<url>http://maven.viridiansoftware.com/content/groups/public/</url>
+	</repository>
+</repositories>
+```
+
+** HTTP Reporter **
+```xml
+<dependency>
+   <groupId>com.viridiansoftware.metrics</groupId>
+   <artifactId>metrics-elasticsearch-http</artifactId>
+   <version>1.0.0</version>
+</dependency>
+```
+
+** Transport Reporter **
+
+```xml
+<dependency>
+   <groupId>com.viridiansoftware.metrics</groupId>
+   <artifactId>metrics-elasticsearch-transport</artifactId>
+   <version>1.0.0</version>
+</dependency>
+```
+
+### Reporters
+
 The [Dropwizard Metrics user guide](https://dropwizard.github.io/metrics/3.1.0/getting-started/) documents how to set up the metrics registry and create different types of metrics.
 
 This library provides two different methods to report to Elasticsearch; using the [HTTP API](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-http.html) and using the [Transport API](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-transport.html). 
 
-### HTTP Reporter
+#### HTTP Reporter
 
 The following will create a reporter that uses an already initialised Metric Registry, sets the indexes generated as "test-YYYY.MM.DD" and reports over HTTP to localhost:9201.
 
@@ -43,7 +101,7 @@ ElasticsearchReporter reporter = ElasticsearchHttpReporter
 reporter.start(1, TimeUnit.SECONDS);
 ```
 
-### Transport Reporter
+#### Transport Reporter
 
 The following will create a reporter that uses an already initialised Metric Registry, sets the indexes generated as "test-YYYY.MM.DD" and reports over the Transport API using an [Elasticsearch client instance](http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/client.html).
 
