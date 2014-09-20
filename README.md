@@ -14,61 +14,10 @@ However, if using the Transport API, please note that metrics-elasticsearch uses
 
 ## Usage
 
-### Gradle Dependencies
+### Dependencies
 
-** Repository **
-
-```groovy
-repositories {
-   mavenLocal()
-   mavenCentral()
-   maven { url "http://maven.viridiansoftware.com/content/repositories/releases/ }
-}
-```
-
-** HTTP Reporter **
-
-```groovy
-compile 'com.viridiansoftware.metrics:metrics-elasticsearch-http:1.0.0'
-```
-
-** Transport Reporter **
-
-```groovy
-compile 'com.viridiansoftware.metrics:metrics-elasticsearch-transport:1.0.0'
-```
-
-### Maven Dependencies
-
-** Repository **
-```xml
-<repositories>
-	<repository>
-		<id>viridansoftware</id>
-		<name>Viridian Software repository</name>
-		<url>http://maven.viridiansoftware.com/content/groups/public/</url>
-	</repository>
-</repositories>
-```
-
-** HTTP Reporter **
-```xml
-<dependency>
-   <groupId>com.viridiansoftware.metrics</groupId>
-   <artifactId>metrics-elasticsearch-http</artifactId>
-   <version>1.0.0</version>
-</dependency>
-```
-
-** Transport Reporter **
-
-```xml
-<dependency>
-   <groupId>com.viridiansoftware.metrics</groupId>
-   <artifactId>metrics-elasticsearch-transport</artifactId>
-   <version>1.0.0</version>
-</dependency>
-```
+* [Maven](https://github.com/tomcashman/metrics-elasticsearch/wiki/Maven-Dependencies)
+* [Gradle](https://github.com/tomcashman/metrics-elasticsearch/wiki/Gradle-Dependencies)
 
 ### Reporters
 
