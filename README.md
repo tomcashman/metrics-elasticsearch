@@ -11,6 +11,8 @@ However, if using the Transport API, please note that metrics-elasticsearch uses
 | metrics-elasticsearch  | dropwizard metrics | elasticsearch |
 | ------------- | ------------- | ------------- |
 | 1.0.0  | 3.1.0  | 1.2.4  |
+| 1.0.1  | 3.1.1  | 1.2.4  |
+| 1.1.0  | 3.1.1  | 1.3.9  |
 
 ## Usage
 
