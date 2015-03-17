@@ -14,7 +14,7 @@ However, if using the Transport API, please note that metrics-elasticsearch uses
 
 ## Usage
 
-### Dependencies
+### Setting up Maven & Gradle
 
 * [Maven](https://github.com/tomcashman/metrics-elasticsearch/wiki/Maven-Dependencies)
 * [Gradle](https://github.com/tomcashman/metrics-elasticsearch/wiki/Gradle-Dependencies)
