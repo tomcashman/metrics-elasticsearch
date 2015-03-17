@@ -339,7 +339,7 @@ public class ElasticsearchTransportReporterTest extends
 
     private void waitForReporter() {
         try {
-            Thread.sleep(1500);
+            Thread.sleep(2000);
         } catch (Exception e) {
         }
     }
