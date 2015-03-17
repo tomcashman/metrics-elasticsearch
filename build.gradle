@@ -30,7 +30,7 @@ subprojects {
     }
     
     ext {
-    	metricsVersion="3.1.0"
+    	metricsVersion="3.1.1"
     	elasticsearchVersion="1.2.4"
     	jacksonVersion="2.2.2"
     	jodaVersion="2.4"
