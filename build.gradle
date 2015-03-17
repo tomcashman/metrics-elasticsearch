@@ -10,15 +10,10 @@ subprojects {
     uploadArchives {
 		repositories {
 			mavenDeployer {
-				repository(url: "http://maven.viridiansoftware.com/content/repositories/releases") {
+				repository(url: "http://viridiansoftware.com/maven/content/repositories/releases/") {
 					if(project.hasProperty('mavenUser')) {
 						authentication(userName: project.property('mavenUser'), password: project.property('mavenPassword'))
 					}
-    			}
-    			snapshotRepository(url: "http://maven.viridiansoftware.com/content/repositories/snapshots") {
-    				if(project.hasProperty('mavenUser')) {
-    					authentication(userName: project.property('mavenUser'), password: project.property('mavenPassword'))
-    				}
     			}
 			}
 		}
